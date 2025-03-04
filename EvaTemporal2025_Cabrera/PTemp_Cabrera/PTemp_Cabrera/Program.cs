@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using PTemp_Cabrera.Data;
 using PTemp_Cabrera.Models;
@@ -9,6 +10,13 @@ builder.Services.AddControllersWithViews();
 
 //Conexion a la base de datos
 builder.Services.AddDbContext<DbtempCabreraContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL")));
+
+//Cookies
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+{
+    options.LoginPath = "/Login/Login";
+    options.AccessDeniedPath = "/Login/AccesoDenegado";
+});
 
 var app = builder.Build();
 
@@ -25,6 +33,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -41,4 +50,6 @@ Proyecto creado con VS CODE, .NET 7.0
 Commando Scaffold para creacion de Modelos en base a Tablas (Enfoque Database First):
 dotnet ef dbcontext scaffold "Server=localhost;Database=DBTemp_Cabrera;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -o Models
 
+Commit 1 - Creacion de proyecto y Login
+Commit 2 - 
 */

@@ -5,6 +5,14 @@
 }
 
 <h2>LOGIN</h2>
+
+@if(ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        <p>@ViewBag.ErrorMessage</p>
+    </div>
+}
+
 <form asp-action="Login" method="post">
     <div class="form-group">
             <label asp-for="Usuario"></label>
@@ -18,9 +26,10 @@
             <!--Validacion -->
             <span asp-validation-for="Clave" class="text-danger"></span>
     </div>
-
+    <br>
     <button type="submit" class="btn btn-primary">Ingresar</button>
-    @section Scripts{
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
 </form>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

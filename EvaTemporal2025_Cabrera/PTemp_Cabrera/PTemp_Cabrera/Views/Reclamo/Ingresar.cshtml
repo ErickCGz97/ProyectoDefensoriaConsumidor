@@ -1,0 +1,68 @@
+@model PTemp_Cabrera.DTOs.ReclamoDTO
+
+@{
+    ViewData["Title"] = "Ingresar Reclamo";
+}
+
+<h2>Reclamo</h2>
+
+<form asp-action="Ingresar" method="post">
+    <h3>Datos Generales del Reclamo</h3>
+    <div class="form-group">
+        <label asp-for="NombreProveedor"></label>
+        <input asp-for="NombreProveedor" class="form-control" />
+        <span asp-validation-for="NombreProveedor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DireccionProveedor"></label>
+        <input asp-for="DireccionProveedor" class="form-control" />
+        <span asp-validation-for="DireccionProveedor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DetalleReclamo"></label>
+        <input asp-for="DetalleReclamo" class="form-control" />
+        <span asp-validation-for="DetalleReclamo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TelefonoProveedor"></label>
+        <input asp-for="TelefonoProveedor" class="form-control" />
+        <span asp-validation-for="TelefonoProveedor" class="text-danger"></span>
+    </div>    
+    <div class="form-group">
+        <label asp-for="MontoReclamo"></label>
+        <input asp-for="MontoReclamo" class="form-control" />
+        <span asp-validation-for="MontoReclamo" class="text-danger"></span>
+    </div>    
+
+    <h3>Datos del Consumidor</h3>
+    <div class="form-group">
+        <label asp-for="NombreConsumidor"></label>
+        <input asp-for="NombreConsumidor" class="form-control" />
+        <span asp-validation-for="NombreConsumidor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ApellidoConsumidor"></label>
+        <input asp-for="ApellidoConsumidor" class="form-control" />
+        <span asp-validation-for="ApellidoConsumidor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DireccionConsumidor"></label>
+        <input asp-for="DireccionConsumidor" class="form-control" />
+        <span asp-validation-for="DireccionConsumidor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CorreoElectronico"></label>
+        <input asp-for="CorreoElectronico" class="form-control" />
+        <span asp-validation-for="CorreoElectronico" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DUIConsumidor"></label>
+        <input asp-for="DUIConsumidor" class="form-control" />
+        <span asp-validation-for="DUIConsumidor" class="text-danger"></span>
+    </div>    
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

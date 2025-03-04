@@ -3,16 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PTemp_Cabrera</title>
+    <title>@ViewData["Title"] - Defensoria del Consumidor</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PTemp_Cabrera.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
+    <header> <!--Validacion PTemp_Cabrera evitar mostrar la NavBar en el Login--> 
+    @if(ViewContext.RouteData.Values["controller"].ToString() != "Login" || ViewContext.RouteData.Values["action"].ToString() != "Login")
+    {
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PTemp_Cabrera</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Defensoria</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -29,6 +31,7 @@
                 </div>
             </div>
         </nav>
+    }
     </header>
     <div class="container">
         <main role="main" class="pb-3">
